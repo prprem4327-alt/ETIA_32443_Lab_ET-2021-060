@@ -1,22 +1,14 @@
-#define F_CPU 16000000UL
-
+#include <Arduino.h>
 #include <avr/io.h>
 #include <util/delay.h>
 
-int main(void)
+void task1()
 {
-    DDRB = DDRB | (1 << PB0);
+    DDRB |= (1 << DDB0);   // PB0 output
 
-    while (1)
-    {
-        PORTB = PORTB | (1 << PB0);
+    PORTB |= (1 << PB0);
+    _delay_ms(1000);
 
-        _delay_ms(1000);
-
-        PORTB = PORTB & ~(1 << PB0);
-
-        _delay_ms(1000);
-    }
-
-    return 0;
+    PORTB &= ~(1 << PB0);
+    _delay_ms(1000);
 }
