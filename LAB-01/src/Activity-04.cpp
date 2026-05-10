@@ -5,18 +5,16 @@
 
 int main(void)
 {
-    PORTB = 0x00;
-
-    DDRB |= (1 << PB0);
-
-    PORTB &= ~(1 << PB0);
+    DDRB |= (1 << DDB0);
 
     while (1)
-    {
+    {   
         PORTB |= (1 << PB0);
-        _delay_ms(500);
-
+        _delay_ms(1000);
+        
         PORTB &= ~(1 << PB0);
-        _delay_ms(500);
+        _delay_ms(1000);
     }
+
+    return 0;
 }
